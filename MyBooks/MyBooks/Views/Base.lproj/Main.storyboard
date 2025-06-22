@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hGy-F2-k2L">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYc-Hg-aEt">
+                                <rect key="frame" x="159" y="401" width="75" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="VO0-Xg-cIQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="cd1-Yu-x1V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Signin"/>
+                                <connections>
+                                    <action selector="btnSigninGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQq-Vf-CK0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LYc-Hg-aEt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="faa-WZ-QUs"/>
+                            <constraint firstItem="LYc-Hg-aEt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yuI-aU-o7x"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="-2"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="kOV-IF-wMZ">
+            <objects>
+                <viewController id="YTW-Pa-8Mp" customClass="HomeViewController" customModule="MyBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iTj-L0-S7C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbT-39-hVw">
+                                <rect key="frame" x="76" y="362" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="wx1-gV-K8L"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oeM-Q3-NpO">
+                                <rect key="frame" x="0.0" y="218" width="393" height="566"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sas-nH-tsC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Sas-nH-tsC" firstAttribute="bottom" secondItem="oeM-Q3-NpO" secondAttribute="bottom" id="89s-55-RLL"/>
+                            <constraint firstItem="oeM-Q3-NpO" firstAttribute="top" secondItem="Sas-nH-tsC" secondAttribute="top" constant="100" id="Fid-qc-S4o"/>
+                            <constraint firstItem="Sas-nH-tsC" firstAttribute="trailing" secondItem="HbT-39-hVw" secondAttribute="trailing" id="LtT-Ph-Ooa"/>
+                            <constraint firstItem="Sas-nH-tsC" firstAttribute="trailing" secondItem="oeM-Q3-NpO" secondAttribute="trailing" id="OMR-LR-f0G"/>
+                            <constraint firstItem="HbT-39-hVw" firstAttribute="top" secondItem="Sas-nH-tsC" secondAttribute="top" id="RIC-I5-k6n"/>
+                            <constraint firstItem="HbT-39-hVw" firstAttribute="leading" secondItem="Sas-nH-tsC" secondAttribute="leading" id="qDa-ou-cq2"/>
+                            <constraint firstItem="oeM-Q3-NpO" firstAttribute="leading" secondItem="Sas-nH-tsC" secondAttribute="leading" id="yR4-Ws-kce"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DPm-gc-Ar6"/>
+                    <connections>
+                        <outlet property="productsListTV" destination="oeM-Q3-NpO" id="QPU-Pe-lWA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNx-Qd-ecM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="-2"/>
+        </scene>
+        <!--Viewer View Controller-->
+        <scene sceneID="Faa-6T-Fvh">
+            <objects>
+                <viewController storyboardIdentifier="PDFViewerViewController" id="Vuc-QV-8gQ" customClass="PDFViewerViewController" customModule="MyBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q7H-D9-0uh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="63v-TL-ek8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ie6-WB-zNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2648" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RSy-2d-Bg7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hGy-F2-k2L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Oul-SK-vad">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YTW-Pa-8Mp" kind="relationship" relationship="rootViewController" id="b5v-NJ-KBc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HD1-yI-d4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994.6564885496183" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
