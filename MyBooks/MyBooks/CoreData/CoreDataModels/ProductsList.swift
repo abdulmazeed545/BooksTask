@@ -86,7 +86,7 @@ class ProductsListManager: NSObject {
     }
    
     // Deleting a specific Record in coredata
-    func deleteProduct(byId id: String) -> AnyPublisher<Bool, Error> {
+    func deleteProduct(byId id: String, productName: String?) -> AnyPublisher<Bool, Error> {
         let context = coreDataManager.context
         let fetchRequest: NSFetchRequest<ProductsEntity> = ProductsEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
@@ -97,12 +97,22 @@ class ProductsListManager: NSObject {
                     let results = try context.fetch(fetchRequest)
                     guard let productToDelete = results.first else {
                         promise(.failure(NSError(domain: "", code: -1,
-                                             userInfo: [NSLocalizedDescriptionKey: "Product not found"])))
+                                              userInfo: [NSLocalizedDescriptionKey: "Product not found"])))
                         return
                     }
                     
                     context.delete(productToDelete)
                     try context.save()
+                    
+                    // Schedule notification
+                    // After successful deletion:
+                        if let name = productName {
+                            DispatchQueue.main.async {
+                                // This will now check the setting before sending
+                                NotificationManager.shared.scheduleDeletionNotification(for: name)
+                            }
+                        }
+                    
                     promise(.success(true))
                 } catch {
                     promise(.failure(error))

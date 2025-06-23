@@ -118,8 +118,8 @@ class ProductListViewModel: ObservableObject {
     }
     
     // In ProductsViewModel.swift
-    func deleteProduct(withId id: String) -> AnyPublisher<Bool, Error> {
-        return ProductsListManager.shared.deleteProduct(byId: id)
+    func deleteProduct(withId id: String, name: String) -> AnyPublisher<Bool, Error> {
+        return ProductsListManager.shared.deleteProduct(byId: id, productName: name)
             .flatMap { [weak self] _ -> AnyPublisher<Bool, Error> in
                 // After successful deletion, refresh the products list
                 guard let self = self else {

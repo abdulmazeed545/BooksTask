@@ -112,7 +112,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     private func deleteProductWithAnimation(_ product: Product, at indexPath: IndexPath, completion: @escaping (Bool) -> Void) {
-        guard let id = product.id else {
+        guard let id = product.id, let name = product.name else {
             completion(false)
             return
         }
@@ -122,18 +122,17 @@ extension HomeViewController: UITableViewDelegate {
         productsListTV.deleteRows(at: [indexPath], with: .left)
         
         // Perform actual deletion
-        viewModel.deleteProduct(withId: id)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] result in
-                if case .failure(let error) = result {
-                    self?.showErrorAlert(error: error)
-                    self?.productsListTV.reloadData() // Revert if failed
-                    completion(false)
-                }
-            }, receiveValue: { _ in
-                completion(true)
-            })
-            .store(in: &cancellables)
+        viewModel.deleteProduct(withId: id, name: name)
+               .receive(on: DispatchQueue.main)
+               .sink(receiveCompletion: { [weak self] completion in
+                   if case .failure(let error) = completion {
+                       self?.showErrorAlert(error: error)
+                       self?.productsListTV.reloadData() // Revert if failed
+                   }
+               }, receiveValue: { _ in
+                   // Success handled by binding
+               })
+               .store(in: &cancellables)
     }
     
     private func showErrorAlert(error: Error) {
