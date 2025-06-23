@@ -1,28 +1,40 @@
 import Foundation
 
 struct Product: Codable, Identifiable {
-    let id: String
-    let name: String
-    let data: ProductData?
+    var id: String?
+    var name: String?
+    var data: ProductData?
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case data = "data"
+    }
+    
+    // Default initializer (all properties nil)
+     init() {
+         self.id = nil
+         self.name = nil
+         self.data = nil
+     }
 }
 
 struct ProductData: Codable {
-    let color: String?
-    let capacity: String?
-    let capacityGB: Int?
-    let price: Double?
-    let generation: String?
-    let year: Int?
-    let cpuModel: String?
-    let hardDiskSize: String?
-    let strapColour: String?
-    let caseSize: String?
-    let description: String?
-    let screenSize: Double?
-    let Capacity: String?
-    let Generation: String?
-    let Price: String?
-    let Color: String?
+    var color: String?
+    var capacity: String?
+    var capacityGB: Int?
+    var price: Double?
+    var generation: String?
+    var year: Int?
+    var cpuModel: String?
+    var hardDiskSize: String?
+    var strapColour: String?
+    var caseSize: String?
+    var description: String?
+    var screenSize: Double?
+    var Capacity: String?
+    var Generation: String?
+    var Price: String?
+    var Color: String?
     // Add more fields as needed for flexibility
     
     enum CodingKeys: String, CodingKey {

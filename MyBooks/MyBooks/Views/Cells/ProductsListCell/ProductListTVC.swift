@@ -27,7 +27,7 @@ class ProductListTVC: UITableViewCell {
     }
     
     func updateData(obj: Product){
-        lblSerialNo.text = "S.No:  \(obj.id)"
+        lblSerialNo.text = "S.No:  \(obj.id ?? "")"
         lblProductName.text = obj.name
     }
     
