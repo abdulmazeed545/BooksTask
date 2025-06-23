@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Apply saved theme at launch
+          ThemeManager.shared.applyTheme()
         // Override point for customization after application launch.
         FirebaseApp.configure()
         return true

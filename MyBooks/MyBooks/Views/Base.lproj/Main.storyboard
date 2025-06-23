@@ -53,6 +53,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HbT-39-hVw">
                                 <rect key="frame" x="0.0" y="50" width="414" height="60"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWj-mJ-nFD">
+                                        <rect key="frame" x="16" y="12.666666666666664" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="2Vy-VZ-Sog"/>
+                                            <constraint firstAttribute="height" constant="35" id="4pK-qG-jfa"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="gearshape" catalog="system"/>
+                                        <connections>
+                                            <action selector="btnSettingsTapped:" destination="YTW-Pa-8Mp" eventType="touchUpInside" id="HdQ-qD-hrv"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Q-Zl-7td">
                                         <rect key="frame" x="367" y="12.666666666666664" width="35" height="35"/>
                                         <constraints>
@@ -77,8 +89,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Q1Q-Zl-7td" firstAttribute="centerY" secondItem="HbT-39-hVw" secondAttribute="centerY" id="5dS-BW-D8y"/>
+                                    <constraint firstItem="rWj-mJ-nFD" firstAttribute="leading" secondItem="HbT-39-hVw" secondAttribute="leading" constant="16" id="88V-gw-5Xn"/>
                                     <constraint firstAttribute="trailing" secondItem="Q1Q-Zl-7td" secondAttribute="trailing" constant="12" id="Kdc-lR-6pn"/>
                                     <constraint firstItem="Q1Q-Zl-7td" firstAttribute="leading" secondItem="33L-FT-gG7" secondAttribute="trailing" constant="15" id="TB1-FX-b9A"/>
+                                    <constraint firstItem="rWj-mJ-nFD" firstAttribute="centerY" secondItem="HbT-39-hVw" secondAttribute="centerY" id="WkI-Xw-DSo"/>
                                     <constraint firstItem="33L-FT-gG7" firstAttribute="centerY" secondItem="Q1Q-Zl-7td" secondAttribute="centerY" id="Zmh-rD-Rjo"/>
                                     <constraint firstAttribute="height" constant="60" id="wx1-gV-K8L"/>
                                 </constraints>
@@ -116,9 +130,38 @@
                     <view key="view" contentMode="scaleToFill" id="q7H-D9-0uh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siH-aY-IS8">
+                                <rect key="frame" x="16" y="40" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7Za-1f-f3e"/>
+                                    <constraint firstAttribute="width" constant="35" id="e3v-9z-3El"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrowshape.left.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="btnBackTapped:" destination="Vuc-QV-8gQ" eventType="touchUpInside" id="F83-RE-K8D"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abc-NK-tWg">
+                                <rect key="frame" x="0.0" y="75" width="414" height="661"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="63v-TL-ek8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="abc-NK-tWg" firstAttribute="top" secondItem="siH-aY-IS8" secondAttribute="bottom" id="N4K-xc-78L"/>
+                            <constraint firstItem="abc-NK-tWg" firstAttribute="leading" secondItem="63v-TL-ek8" secondAttribute="leading" id="Xl7-9U-2gJ"/>
+                            <constraint firstItem="63v-TL-ek8" firstAttribute="trailing" secondItem="abc-NK-tWg" secondAttribute="trailing" id="ciH-v3-rW4"/>
+                            <constraint firstItem="siH-aY-IS8" firstAttribute="top" secondItem="63v-TL-ek8" secondAttribute="top" constant="20" id="nuN-Z0-yF9"/>
+                            <constraint firstItem="63v-TL-ek8" firstAttribute="bottom" secondItem="abc-NK-tWg" secondAttribute="bottom" id="qOu-gb-9dp"/>
+                            <constraint firstItem="siH-aY-IS8" firstAttribute="leading" secondItem="63v-TL-ek8" secondAttribute="leading" constant="16" id="wuV-6g-dYs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="vwPdf" destination="abc-NK-tWg" id="oL0-hI-IBf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ie6-WB-zNF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,7 +186,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="document.fill" catalog="system" width="115" height="128"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

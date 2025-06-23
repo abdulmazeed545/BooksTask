@@ -1,18 +1,12 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController, UITableViewDataSource {
+class HomeViewController: UIViewController {
     @IBOutlet weak var productsListTV:UITableView!
     private let viewModel = ProductListViewModel()
     private var cancellables = Set<AnyCancellable>()
-    var products:[Product] = []{
-        didSet{
-            DispatchQueue.main.async{
-                self.productsListTV.reloadData()
-            }
-        }
-    }
     
+    //MARK: - viewlifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -43,6 +37,13 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    @IBAction func btnSettingsTapped(_ sender: UIButton){
+        let settingsVC = SettingsViewController()
+        let navController = UINavigationController(rootViewController: settingsVC)
+        navController.modalPresentationStyle = .formSheet // or .fullScreen
+        present(navController, animated: true)
+    }
+    
     private func bindViewModel() {
         viewModel.$products
             .receive(on: DispatchQueue.main)
@@ -55,8 +56,10 @@ class HomeViewController: UIViewController, UITableViewDataSource {
        private func loadData() {
            viewModel.loadProducts()
        }
- 
-    // MARK: - UITableViewDataSource
+}
+
+//MARK: - UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.products.count
     }
