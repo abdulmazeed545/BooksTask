@@ -141,7 +141,7 @@ class CoreDataManger: NSObject {
     }
     
     public func clearDB() {
-        let entityNames = [EntityName.ProductsEntity]
+        let entityNames = [EntityName.ProductsEntity, EntityName.UserEntity]
         
         entityNames.forEach({
             CoreDataManger.shared.deleteAll(strEntityName: $0)

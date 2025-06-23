@@ -1,5 +1,7 @@
 import UIKit
 import Combine
+import FirebaseAuth
+import GoogleSignIn
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var productsListTV:UITableView!
@@ -23,8 +25,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func openPDFButtonTapped(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "PDFViewerViewController") as? PDFViewerViewController else {return}
-        navigationController?.pushViewController(vc, animated: true)
+        guard let vc =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PDFViewerViewController") as? PDFViewerViewController else {return}
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnImageTapped(_ sender: UIButton){
@@ -42,6 +44,11 @@ class HomeViewController: UIViewController {
         let navController = UINavigationController(rootViewController: settingsVC)
         navController.modalPresentationStyle = .formSheet // or .fullScreen
         present(navController, animated: true)
+    }
+    
+    @IBAction func btnProfileTapped(_ sender: UIButton){
+        guard let vc =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as? ProfileVC else {return}
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func bindViewModel() {

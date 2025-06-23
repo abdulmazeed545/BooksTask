@@ -15,7 +15,13 @@ enum ProductwsEntityKeys {
     static let info = "myData"
 }
 
+enum UserEntityKeys{
+    static let userName = "userName"
+    static let email        = "email"
+    static let profileUrl   = "profileUrl"
+}
 // MARK: - CoreData Entities
 enum EntityName {
     static let ProductsEntity                     = "ProductsEntity"
+    static let UserEntity                          = "UserEntity"
 }
